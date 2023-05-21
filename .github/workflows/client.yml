@@ -1,0 +1,26 @@
+name: API CI
+
+on:
+  push:
+    branches: 
+      - main
+      - dev
+  pull_request:
+    branches: 
+     - main
+     - dev
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [latest]
+
+    steps:
+    - uses: actions/checkout@master
+    - run: npm install
+    - run: npm run build
+    - run: npm run lint
+    - run: npm run test

@@ -1,0 +1,1 @@
+export const OK_SUCCESSFUL_OPERATION = 'OK';
