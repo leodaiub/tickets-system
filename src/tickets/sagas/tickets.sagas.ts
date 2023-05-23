@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { Saga, ICommand, ofType } from '@nestjs/cqrs';
-import { Observable, map, AsyncSubject } from 'rxjs';
+import { Observable, map } from 'rxjs';
 import { RedeemAttemptEvent } from '../events/redeem-attempt.event';
 import { SaveRedeemAttemptCommand } from '../commands/implementations';
 

@@ -5,6 +5,7 @@ import { RedeemTicketCommand } from '../implementations';
 import { Ticket } from 'src/tickets/entities/ticket.entity';
 import { RedeemAttemptEvent } from 'src/tickets/events/redeem-attempt.event';
 import { RedemptionStatus } from 'src/tickets/entities/redemptions.entity';
+import { ConflictException } from '@nestjs/common';
 
 @CommandHandler(RedeemTicketCommand)
 export class RedeemTicketCommandHandler
@@ -32,9 +33,9 @@ export class RedeemTicketCommandHandler
           status: RedemptionStatus.failed,
         }),
       );
-      throw new Error('Ticket already redeemed');
+      throw new ConflictException('Ticket already redeemed');
     }
-    console.log(ticketFound);
+
     const savedTicket = await this.ticketsRepository.save({
       id: ticketFound.id,
       userId,

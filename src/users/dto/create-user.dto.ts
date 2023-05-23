@@ -1,6 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { Transform } from 'class-transformer';
-import { IsNotEmpty, IsString } from 'class-validator';
+import { IsEmail, IsNotEmpty, IsString } from 'class-validator';
 import * as bcrypt from 'bcryptjs';
 
 export class CreateUserDto {
@@ -17,7 +17,7 @@ export class CreateUserDto {
   password: string;
 
   @ApiProperty()
-  @IsString()
+  @IsEmail()
   @IsNotEmpty()
   email: string;
 }

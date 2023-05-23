@@ -11,12 +11,12 @@ import {
 import { TicketsService } from './tickets.service';
 import { CreateTicketDto } from './dto/create-ticket.dto';
 import { AuthGuard } from 'src/users/classes/authGuard.class';
-import { ApiBearerAuth } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiParam } from '@nestjs/swagger';
 import { RequestWithUser } from 'src/users/classes/request-with-user.class';
 
-@Controller('tickets')
 @UseGuards(AuthGuard)
 @ApiBearerAuth('token')
+@Controller('tickets')
 export class TicketsController {
   constructor(private readonly ticketsService: TicketsService) {}
 
@@ -36,11 +36,18 @@ export class TicketsController {
     });
   }
 
+  @ApiParam({
+    name: 'userId',
+    type: String,
+    required: false,
+    allowEmptyValue: true,
+  })
   @Get('/redemptions/user/:userId')
   getRedemptionsHistory(
     @Req() req: RequestWithUser,
-    @Param('userId') userId?: string | undefined,
+    @Param('userId') userId?: string,
   ) {
-    return this.ticketsService.getRedemptionsHistory(userId || req.user);
+    const userIdToUse = userId === '{userId}' ? req.user : userId;
+    return this.ticketsService.getRedemptionsHistory(userIdToUse);
   }
 }

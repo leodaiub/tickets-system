@@ -18,18 +18,14 @@ export class UsersService {
   ) {}
 
   async create(createUserDto: CreateUserDto): Promise<PostResponse> {
-    try {
-      const response = await this.commandBus.execute(
-        new CreateUserCommand(createUserDto),
-      );
+    const response = await this.commandBus.execute(
+      new CreateUserCommand(createUserDto),
+    );
 
-      return {
-        message: OK_SUCCESSFUL_OPERATION,
-        data: response,
-      };
-    } catch (error) {
-      throw new Error(error.message);
-    }
+    return {
+      message: OK_SUCCESSFUL_OPERATION,
+      data: response,
+    };
   }
 
   async signIn(credentials: SignInUserDto): Promise<PostResponse> {

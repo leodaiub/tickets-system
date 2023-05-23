@@ -1,14 +1,11 @@
-import { User } from 'src/users/entities/user.entity';
 import {
   BaseEntity,
   Column,
   CreateDateColumn,
   Entity,
-  ManyToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
-import { Ticket } from './ticket.entity';
 
 export enum RedemptionStatus {
   'succesful' = 'succesful',
