@@ -8,7 +8,7 @@
    Application to enable users to sign up, log in, and then create tickets, as well as redeem the tickets to them. At the same
    time maintaining a history of each attempt at redemption.
     <br />
-    <a href="https://tickets-system-production.up.railway.app/">View deployed Api</a>
+    <a href="https://tickets-system.up.railway.app/api">View deployed Api</a>
   </p>
 </p>
 
@@ -26,7 +26,7 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-Check the deployed API at [https://tickets-system-production.up.railway.app/](https://tickets-system-production.up.railway.app/)
+Check the deployed API at [https://tickets-system-production.up.railway.app/](https://tickets-system-production.up.railway.app/](https://tickets-system.up.railway.app/api)
 
 Used the CQRS Architecture pattern to separate the write logic into commands, and read logic into queries, so the responsibility is no longer of the controllers and services, which allows the application to scale efficiently, and provide an opinionated design to help with maintainability.
 
