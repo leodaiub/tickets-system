@@ -26,7 +26,7 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-Check the deployed API at [(https://tickets-system-production.up.railway.app/)](https://tickets-system-production.up.railway.app/](https://tickets-system.up.railway.app/api)
+Check the deployed API at [https://tickets-system-production.up.railway.app/](https://tickets-system.up.railway.app/api)
 
 Used the CQRS Architecture pattern to separate the write logic into commands, and read logic into queries, so the responsibility is no longer of the controllers and services, which allows the application to scale efficiently, and provide an opinionated design to help with maintainability.
 
